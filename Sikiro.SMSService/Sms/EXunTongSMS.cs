@@ -23,7 +23,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.EXunTongSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName)
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "")
         {
             try
             {

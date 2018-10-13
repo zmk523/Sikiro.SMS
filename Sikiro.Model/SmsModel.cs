@@ -23,5 +23,9 @@ namespace Sikiro.Model
         public DateTime? TimeSendDateTime { get; set; }
 
         public int SendCount { get; set; }
+        /// <summary>
+        /// 模板编码
+        /// </summary>
+        public string TemplateCode { get; set; }
     }
 }

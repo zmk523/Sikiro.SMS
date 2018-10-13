@@ -55,7 +55,7 @@ namespace Sikiro.SMS.Api.Controllers
 
             ImmediatelyPublish();
 
-            TimingPublish();
+            //TimingPublish();
 
             return Ok();
         }

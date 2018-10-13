@@ -13,7 +13,12 @@ namespace Sikiro.SMS.Api.Model.Sms
         public SmsEnums.SmsType Type { get; set; }
 
         public List<string> Mobiles { get; set; }
-
         public DateTime? TimeSendDateTime { get; set; }
+
+        /// <summary>
+        /// 模板编码
+        /// </summary>
+        public string TemplateCode { get; set; }
+
     }
 }

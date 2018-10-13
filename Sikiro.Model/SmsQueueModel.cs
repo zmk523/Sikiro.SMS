@@ -13,6 +13,10 @@ namespace Sikiro.Model
         public List<string> Mobiles { get; set; }
 
         public int SendCount { get; set; }
+        /// <summary>
+        /// 模板编码
+        /// </summary>
+        public string TemplateCode { get; set; }
     }
 
     public static class SmsQueueModelKey

@@ -38,7 +38,7 @@ namespace Sikiro.SMSService
         {
             Sms = item;
 
-            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"]);
+            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode);
             if (isSuccess)
                 Success(item);
             else
@@ -66,7 +66,8 @@ namespace Sikiro.SMSService
                         CreateDateTime = now,
                         Mobiles = toBeSendPhones,
                         TimeSendDateTime = sms.TimeSendDateTime,
-                        Type = sms.Type
+                        Type = sms.Type,
+                        TemplateCode = sms.TemplateCode
                     });
                     index++;
                 } while (index < page);
