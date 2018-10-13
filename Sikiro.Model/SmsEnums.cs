@@ -20,7 +20,8 @@ namespace Sikiro.Model
         {
             JisnZhou,
             WoDong,
-            EXunTong
+            EXunTong,
+            Aliyun
         }
 
         public enum SmsStatus

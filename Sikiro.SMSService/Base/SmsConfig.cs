@@ -14,6 +14,8 @@
         public Wodongsms WoDongSMS { get; set; }
 
         public EXuntongsms EXunTongSMS { get; set; }
+
+        public Aliyunsms AliyunSMS { get; set; }
     }
 
     public class Jianzhousms
@@ -39,6 +41,17 @@
         public string Password { get; set; }
         public string Url { get; set; }
         public string UserId { get; set; }
+        public int MaxCount { get; set; }
+    }
+
+    public class Aliyunsms
+    {
+        public string EndpointName { get; set; }
+        public string RegionId { get; set; }
+        public string Product { get; set; }
+        public string Domain { get; set; }
+        public string AccessKeyId { get; set; }
+        public string AccessKeySecret { get; set; }
         public int MaxCount { get; set; }
     }
 }

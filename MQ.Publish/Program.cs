@@ -11,7 +11,7 @@ namespace MQ.Publish
         {
             var factory = new ConnectionFactory
             {
-                HostName = "10.1.20.140",
+                HostName = "192.168.0.189",
                 UserName = "admin",
                 Password = "admin@ucsmy"
             };
