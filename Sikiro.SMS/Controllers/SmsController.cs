@@ -38,7 +38,7 @@ namespace Sikiro.SMS.Api.Controllers
         {
             if (string.IsNullOrEmpty(id))
                 return NotFound();
-
+            DateTime date = DateTime.Now;
             var smsService = _smsService.Get(id);
             return smsService.Sms;
         }
@@ -55,7 +55,7 @@ namespace Sikiro.SMS.Api.Controllers
 
             ImmediatelyPublish();
 
-            //TimingPublish();
+            TimingPublish();
 
             return Ok();
         }

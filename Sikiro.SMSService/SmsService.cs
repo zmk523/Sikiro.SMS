@@ -37,8 +37,9 @@ namespace Sikiro.SMSService
         public void Send(SmsModel item)
         {
             Sms = item;
-
-            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode);
+            item.CreateDateTime = DateTime.Now;
+            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode, item.Params);
+            item.TimeSendDateTime = DateTime.Now;
             if (isSuccess)
                 Success(item);
             else
@@ -67,7 +68,8 @@ namespace Sikiro.SMSService
                         Mobiles = toBeSendPhones,
                         TimeSendDateTime = sms.TimeSendDateTime,
                         Type = sms.Type,
-                        TemplateCode = sms.TemplateCode
+                        TemplateCode = sms.TemplateCode,
+                        Params = sms.Params
                     });
                     index++;
                 } while (index < page);
@@ -114,14 +116,12 @@ namespace Sikiro.SMSService
         private void Success(SmsModel model)
         {
             model.Status = SmsEnums.SmsStatus.成功;
-            model.CreateDateTime = DateTime.Now;
             _mongoProxy.Add(MongoKey.SmsDataBase, MongoKey.SmsCollection + "_" + DateTime.Now.ToString("yyyyMM"), model);
         }
 
         private void Fail(SmsModel model)
         {
             model.Status = SmsEnums.SmsStatus.失败;
-            model.CreateDateTime = DateTime.Now;
             _mongoProxy.Add(MongoKey.SmsDataBase, MongoKey.SmsCollection + "_" + DateTime.Now.ToString("yyyyMM"), model);
         }
 

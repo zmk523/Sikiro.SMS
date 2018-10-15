@@ -36,7 +36,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.AliyunSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "")
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "")
         {
             IClientProfile profile = DefaultProfile.GetProfile(RegionId, Account, Password);
             //初始化ascClient,暂时不支持多region（请勿修改）
@@ -48,7 +48,8 @@ namespace Sikiro.SMSService.Sms
             try
             {
                 SendSmsResponse response;
-                switch (templateCode) {
+                switch (templateCode)
+                {
                     case "SMS_116785169"://身份验证验证码
                     case "SMS_116785167"://登录确认验证码
                     case "SMS_116785166"://登录异常验证码

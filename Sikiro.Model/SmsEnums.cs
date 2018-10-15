@@ -21,7 +21,8 @@ namespace Sikiro.Model
             JisnZhou,
             WoDong,
             EXunTong,
-            Aliyun
+            Aliyun,
+            WeChat
         }
 
         public enum SmsStatus

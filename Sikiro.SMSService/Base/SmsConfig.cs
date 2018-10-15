@@ -16,6 +16,8 @@
         public EXuntongsms EXunTongSMS { get; set; }
 
         public Aliyunsms AliyunSMS { get; set; }
+
+        public WeChatsms WeChatSMS { get; set; }
     }
 
     public class Jianzhousms
@@ -53,5 +55,14 @@
         public string AccessKeyId { get; set; }
         public string AccessKeySecret { get; set; }
         public int MaxCount { get; set; }
+    }
+
+    public class WeChatsms {
+
+        public string Account { get; set; }
+        public string Password { get; set; }
+        public string Url { get; set; }
+        public int MaxCount { get; set; }
+
     }
 }

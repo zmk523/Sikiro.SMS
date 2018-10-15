@@ -22,7 +22,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.JianZhouSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "")
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "")
         {
             Encoding myEncoding = Encoding.GetEncoding("utf-8");
             string param = HttpUtility.UrlEncode("account", myEncoding) +
