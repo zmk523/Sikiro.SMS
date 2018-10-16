@@ -18,6 +18,8 @@
         public Aliyunsms AliyunSMS { get; set; }
 
         public WeChatsms WeChatSMS { get; set; }
+
+        public JiGuangsms JiGuangSMS { get; set; }
     }
 
     public class Jianzhousms
@@ -64,5 +66,13 @@
         public string Url { get; set; }
         public int MaxCount { get; set; }
 
+    }
+
+    public class JiGuangsms {
+
+        public string AppKey { get; set; }
+        public string AppSecret { get; set; }
+        public string Url { get; set; }
+        public int MaxCount { get; set; }
     }
 }

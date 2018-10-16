@@ -56,8 +56,8 @@ namespace Sikiro.SMS.Api
                settings.PostProcess = document =>
                {
                    document.Info.Version = "v1";
-                   document.Info.Title = Assembly.GetExecutingAssembly().GetName(true).Name;
-                   document.Info.Description = "短信服务API";
+                   document.Info.Title = "KJ.SMS.Api";// Assembly.GetExecutingAssembly().GetName(true).Name;
+                   document.Info.Description = "阔界短信服务API";
                    document.Info.TermsOfService = "None";
                };
            });

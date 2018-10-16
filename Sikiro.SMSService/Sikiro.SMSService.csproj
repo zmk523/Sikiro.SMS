@@ -5,11 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\Jiguang\**" />
+    <EmbeddedResource Remove="Model\Jiguang\**" />
+    <None Remove="Model\Jiguang\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aliyun.Net.SDK.Dysmsapi" Version="1.0.3" />
+    <PackageReference Include="Jiguang.JPush" Version="1.2.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />

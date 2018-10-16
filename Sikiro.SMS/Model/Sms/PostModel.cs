@@ -16,7 +16,7 @@ namespace Sikiro.SMS.Api.Model.Sms
         [Required, Display(Name = "短信内容")]
         public string Content { get; set; }
         /// <summary>
-        /// 消息类型 0 JisnZhou,1 WoDong,2 EXunTong,3 Aliyun,4 WeChat
+        /// 消息类型 0 JisnZhou,1 WoDong,2 EXunTong,3 Aliyun,4 WeChat,5 JiGuang
         /// </summary>
         public SmsEnums.SmsType Type { get; set; }
         /// <summary>
@@ -34,12 +34,12 @@ namespace Sikiro.SMS.Api.Model.Sms
         public string TemplateCode { get; set; }
         /// <summary>
         /// 扩展参数（使用场景：微信模板消息、支付宝生活号消息）
-        /// 微信： {"topcolor":"topcolor","url ":"url ","data":{"first":["first","#173177"],"keyword1":["keyword1","#173177"],"keyword2":["keyword2","#173177"],"remark":"remark"}}
+        /// 微信：{"touser":"","template_id":"","data":{"first":{"value":"订单取消","color":"#173177"},"keyword1":{"value":"1234545787878","color":"#173177"},"keyword2":{"value":"支付超时","color":"#173177"},"keyword3":{"value":"2018-10-04 08:54:35","color":"#173177"},"keyword4":{"value":"2018-10-04 08:55:35","color":"#173177"},"remark":{"value":"感谢您的关注","color":"#173177"}}}
         /// 支付宝：
         /// </summary>
         /// <remarks>
         /// <remark>
-        /// 微信：{"topcolor":"topcolor","url ":"url ","data":{"first":{"v":"first","c":"#173177"},"keyword1":{"v":"keyword1","c":"#173177"},"keyword2":{"v":"keyword2","c":"#173177"},"remark":"remark"}}
+        /// 微信：https://www.cnblogs.com/stoneniqiu/p/7091501.html
         /// </remark>
         /// </remarks>
         public string Params { get; set; }
