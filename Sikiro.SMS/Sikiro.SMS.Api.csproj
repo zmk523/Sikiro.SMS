@@ -13,17 +13,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyNetQ" Version="3.3.0" />
-    <PackageReference Include="EasyNetQ.DI.Microsoft" Version="3.3.0" />
+    <PackageReference Include="EasyNetQ" Version="3.3.5" />
+    <PackageReference Include="EasyNetQ.DI.Microsoft" Version="3.3.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="NSwag.AspNetCore" Version="11.18.6" />
     <PackageReference Include="Sikiro.Nosql.Mongo" Version="1.1.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Sikiro.Model\Sikiro.Model.csproj" />
     <ProjectReference Include="..\Sikiro.SMS.Toolkits\Sikiro.SMS.Toolkits.csproj" />
     <ProjectReference Include="..\Sikiro.SMSService\Sikiro.SMSService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.PlatformAbstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.platformabstractions\1.1.0\lib\netstandard1.3\Microsoft.Extensions.PlatformAbstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

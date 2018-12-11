@@ -1,7 +1,7 @@
 ﻿{
   "Infrastructure": {
-    "Mongodb": "mongodb://192.168.0.189:27017",
-    "RabbitMQ": "host=192.168.0.189;username=admin;password=admin@ucsmy"
+    "Mongodb": "mongodb://root:kj123456M!@101.132.78.228:27017",
+    "RabbitMQ": "host=101.132.78.228;username=admin;password=admin@ucsmy"
   },
   "Server": {
     "Name": "Sikiro.SMS.Bus",

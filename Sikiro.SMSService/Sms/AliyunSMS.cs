@@ -38,6 +38,7 @@ namespace Sikiro.SMSService.Sms
 
         public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "")
         {
+            phone = phone.Replace(";", ",");
             IClientProfile profile = DefaultProfile.GetProfile(RegionId, Account, Password);
             //初始化ascClient,暂时不支持多region（请勿修改）
             DefaultProfile.AddEndpoint(EndpointName, RegionId, Product, Domain);

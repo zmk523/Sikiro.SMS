@@ -22,6 +22,7 @@ namespace Sikiro.SMS.Bus
 
         public void Start()
         {
+
             Console.WriteLine("I started");
 
             _bus.Subscribe<SmsQueueModel>("", msg =>

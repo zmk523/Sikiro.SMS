@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EasyNetQ;
+using System;
 
 namespace Sikiro.Model
 {
@@ -13,6 +14,10 @@ namespace Sikiro.Model
         public List<string> Mobiles { get; set; }
 
         public int SendCount { get; set; }
+        /// <summary>
+        /// 发送时间
+        /// </summary>
+        public DateTime? TimeSendDateTime { get; set; }
         /// <summary>
         /// 模板编码
         /// </summary>

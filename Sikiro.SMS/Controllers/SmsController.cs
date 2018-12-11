@@ -82,7 +82,7 @@ namespace Sikiro.SMS.Api.Controllers
                 .ForEach(
                     item =>
                     {
-                        _bus.FuturePublish(item.TimeSendDateTime.Value.ToUniversalTime(), item.MapTo<SmsModel, SmsQueueModel>(),
+                        _bus.FuturePublish(item.TimeSendDateTime.Value, item.MapTo<SmsModel, SmsQueueModel>(),
                             SmsQueueModelKey.Topic);
                     });
         }

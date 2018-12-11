@@ -16,10 +16,10 @@ namespace Sikiro.Model
 
         public List<string> Mobiles { get; set; }
 
-        //[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime CreateDateTime { get; set; }
 
-        //[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime? TimeSendDateTime { get; set; }
 
         public int SendCount { get; set; }

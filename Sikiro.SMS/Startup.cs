@@ -1,16 +1,15 @@
-﻿using System.Reflection;
-using EasyNetQ.Scheduling;
-using log4net;
+﻿using EasyNetQ.Scheduling;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NJsonSchema;
-using NSwag.AspNetCore;
+using Microsoft.Extensions.PlatformAbstractions;
 using Sikiro.Nosql.Mongo;
 using Sikiro.SMS.Api.Helper;
+using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
+using System.Reflection;
 
 namespace Sikiro.SMS.Api
 {
@@ -27,6 +26,20 @@ namespace Sikiro.SMS.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Swagger配置
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info { Title = "SMS API", Version = "v1", Description = "RESTful API for My Web Application", TermsOfService = "None" });
+                //注意：此处替换成所生成的XML documentation的文件名[ bin\Debug\netcoreapp2.1\Kjs.Pay.Api.xml]                
+                options.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, string.Format("{0}.xml", MethodBase.GetCurrentMethod().DeclaringType.Namespace)));
+                options.DescribeAllEnumsAsStrings();
+
+            });
+            services.AddSwaggerGen();
+
+            #endregion
+
+
             services.AddMvc(option =>
                 {
                     option.Filters.Add<GolbalExceptionAttribute>();
@@ -44,27 +57,26 @@ namespace Sikiro.SMS.Api
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+
+            if (env.IsEnvironment("develop") || env.IsEnvironment("test"))
+            {
+                app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "KJS Pay API V1");
+                });
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwaggerUiWithApiExplorer(settings =>
-           {
-               settings.GeneratorSettings.DefaultPropertyNameHandling =
-                   PropertyNameHandling.CamelCase;
-               settings.PostProcess = document =>
-               {
-                   document.Info.Version = "v1";
-                   document.Info.Title = "KJ.SMS.Api";// Assembly.GetExecutingAssembly().GetName(true).Name;
-                   document.Info.Description = "阔界短信服务API";
-                   document.Info.TermsOfService = "None";
-               };
-           });
             app.UseMvc();
         }
     }
-
 
     internal class InfrastructureConfig
     {

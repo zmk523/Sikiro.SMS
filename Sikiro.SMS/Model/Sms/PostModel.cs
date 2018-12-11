@@ -27,7 +27,7 @@ namespace Sikiro.SMS.Api.Model.Sms
         /// 发送时间
         /// </summary>
         public DateTime? TimeSendDateTime { get; set; }
-
+        
         /// <summary>
         /// 模板编码
         /// </summary>
@@ -36,6 +36,7 @@ namespace Sikiro.SMS.Api.Model.Sms
         /// 扩展参数（使用场景：微信模板消息、支付宝生活号消息）
         /// 微信：{"touser":"","template_id":"","data":{"first":{"value":"订单取消","color":"#173177"},"keyword1":{"value":"1234545787878","color":"#173177"},"keyword2":{"value":"支付超时","color":"#173177"},"keyword3":{"value":"2018-10-04 08:54:35","color":"#173177"},"keyword4":{"value":"2018-10-04 08:55:35","color":"#173177"},"remark":{"value":"感谢您的关注","color":"#173177"}}}
         /// 支付宝：
+        /// 极光：
         /// </summary>
         /// <remarks>
         /// <remark>
