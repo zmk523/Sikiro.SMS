@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sikiro.SMS.Api", "Sikiro.SMS\Sikiro.SMS.Api.csproj", "{2B27B5C7-DAA5-40BB-80D3-A8C6A3B581F4}"
 EndProject
@@ -36,7 +36,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sikiro.SMS.Api.LoadTest", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99.超时死信demo", "99.超时死信demo", "{E90EDDCB-3067-4729-8DAA-D26F55B732EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQ.Publish", "MQ.Publish\MQ.Publish.csproj", "{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQ.Publish", "MQ.Publish\MQ.Publish.csproj", "{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sikiro.Nosql.Mongo", "..\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo.csproj", "{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{3AA131F6-0858-435B-83DA-CB2FF77EE4A0} = {0F753C0D-1E17-4853-A0C3-7F960A1ABF64}
 		{506C9F8B-48F0-48FF-BA8B-6F6386564205} = {0F753C0D-1E17-4853-A0C3-7F960A1ABF64}
 		{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9} = {E90EDDCB-3067-4729-8DAA-D26F55B732EC}
+		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201} = {C4F2BCF9-30F1-4F33-8FAE-8CBA85C7BC78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29CD5C9D-EB91-4995-A615-52F036A93025}

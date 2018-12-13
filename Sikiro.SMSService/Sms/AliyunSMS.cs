@@ -36,7 +36,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.AliyunSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "")
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
         {
             phone = phone.Replace(";", ",");
             IClientProfile profile = DefaultProfile.GetProfile(RegionId, Account, Password);

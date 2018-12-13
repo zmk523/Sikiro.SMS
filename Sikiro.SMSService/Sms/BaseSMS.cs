@@ -22,12 +22,12 @@ namespace Sikiro.SMSService.Sms
 
         protected string UserId { get; set; }
 
-        public bool SendSMS(List<string> phones, string content, string signName, string templateCode = "", string _params = "")
+        public bool SendSMS(List<string> phones, string content, string signName, string templateCode = "", object _params = null, string token = "")
         {
-            return SendSMS(string.Join(";", phones), content, signName, templateCode, _params);
+            return SendSMS(string.Join(";", phones), content, signName, templateCode, _params, token);
         }
 
-        public abstract bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "");
+        public abstract bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "");
 
     }
 }

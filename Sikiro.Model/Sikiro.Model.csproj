@@ -7,7 +7,10 @@
   <ItemGroup>
     <PackageReference Include="EasyNetQ" Version="3.3.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
-    <PackageReference Include="Sikiro.Nosql.Mongo" Version="1.1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo.csproj" />
   </ItemGroup>
 
   <ItemGroup>

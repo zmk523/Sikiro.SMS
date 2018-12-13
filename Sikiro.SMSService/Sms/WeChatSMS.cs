@@ -16,7 +16,6 @@ namespace Sikiro.SMSService.Sms
     /// </summary>
     public class WeChatSMS : BaseSMS
     {
-        private const string accesToken = "14_eTdkmn4D_vtNI47t8AOTuUuSBkAKDDuQR1s9I0hSrl0rIIX0RmC0qDfF2R-c5GGOD6PYYWg20pGgqlm0TLyKMTo6MmPBMlrKfWVvXQOWqWblsN4SZ7Fgq6BHkLnTBL_y71bu5M4l8j1ao4arJBRbAAARJZ";
         /// <summary>
         /// 
         /// </summary>
@@ -30,11 +29,11 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.WeChatSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "")
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
         {
             try
             {
-                string strJson = HttpHelper.HttpPost(string.Format(Url, accesToken), _params);
+                string strJson = HttpHelper.HttpPost(string.Format(Url, token),"{\"touser\":\""+ phone + "\",\"template_id\":\""+ templateCode + "\",\"data\":"+ _params + "}" );
                 var model = JsonConvert.DeserializeObject<M_WeChatSMS>(strJson);
                 Console.WriteLine($"WeChatSMS：{strJson}  {DateTime.Now}{Environment.NewLine}");
                 return model.errcode == 0 ? true : false;

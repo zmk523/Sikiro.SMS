@@ -8,6 +8,7 @@ using Sikiro.SMS.Toolkits;
 using Sikiro.SMSService.Interfaces;
 using Sikiro.SMSService.Model;
 using Sikiro.SMSService.Sms;
+using Newtonsoft.Json;
 
 namespace Sikiro.SMSService
 {
@@ -38,7 +39,7 @@ namespace Sikiro.SMSService
         {
             Sms = item;
             item.CreateDateTime = DateTime.Now;
-            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode, item.Params);
+            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode, item.Params, item.Token);
             item.TimeSendDateTime = DateTime.Now;
             if (isSuccess)
                 Success(item);
@@ -69,7 +70,8 @@ namespace Sikiro.SMSService
                         TimeSendDateTime = sms.TimeSendDateTime,
                         Type = sms.Type,
                         TemplateCode = sms.TemplateCode,
-                        Params = sms.Params
+                        Params = JsonConvert.SerializeObject(sms.Params),
+                        Token = sms.Token
                     });
                     index++;
                 } while (index < page);
@@ -115,14 +117,18 @@ namespace Sikiro.SMSService
 
         private void Success(SmsModel model)
         {
+            model.CreateDateTime = model.CreateDateTime.AddHours(8);
+            model.TimeSendDateTime = model.TimeSendDateTime.Value.AddHours(8);
             model.Status = SmsEnums.SmsStatus.成功;
-            _mongoProxy.Add(MongoKey.SmsDataBase, MongoKey.SmsCollection + "_" + DateTime.Now.ToString("yyyyMM"), model);
+            _mongoProxy.Add(MongoKey.SmsDataBase, model);
         }
 
         private void Fail(SmsModel model)
         {
+            model.CreateDateTime = model.CreateDateTime.AddHours(8);
+            model.TimeSendDateTime = model.TimeSendDateTime.Value.AddHours(8);
             model.Status = SmsEnums.SmsStatus.失败;
-            _mongoProxy.Add(MongoKey.SmsDataBase, MongoKey.SmsCollection + "_" + DateTime.Now.ToString("yyyyMM"), model);
+            _mongoProxy.Add(MongoKey.SmsDataBase, model);
         }
 
         private int GetPageCount(int phoneCount, int maxCount)

@@ -43,21 +43,11 @@ namespace Sikiro.SMS.Api.Model.Sms
         /// 微信：https://www.cnblogs.com/stoneniqiu/p/7091501.html
         /// </remark>
         /// </remarks>
-        public string Params { get; set; }
-        ///// <summary>
-        ///// 跳转地址
-        ///// </summary>
-        //public string Url { get; set; }
-        ///// <summary>
-        ///// 标题颜色
-        ///// </summary>
-        //public string TopColor { get; set; }
-        ///// <summary>
-        ///// 模板数据
-        ///// </summary>
-        //public TemplateData Data { get; set; }
-
-
+        public object Params { get; set; }
+        /// <summary>
+        /// 微信token
+        /// </summary>
+        public string Token { get; set; }     
     }
 
     /// <summary>
