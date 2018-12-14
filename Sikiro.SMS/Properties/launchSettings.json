@@ -14,7 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "test"
+        "ASPNETCORE_ENVIRONMENT": "develop"
       }
     },
     "QD.SMS": {
@@ -23,7 +23,7 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5124",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "test"
+        "ASPNETCORE_ENVIRONMENT": "develop"
       }
     }
   }
