@@ -21,7 +21,7 @@ namespace Sikiro.SMSService.Model
         /// <summary>
         /// 扩展参数（使用场景：微信模板消息、支付宝生活号消息）
         /// </summary>
-        public object Params { get; set; }
+        public string Params { get; set; }
         /// <summary>
         /// 微信token
         /// </summary>

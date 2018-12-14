@@ -29,18 +29,18 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.WeChatSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
+        public override Tuple<bool, string> SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "", string token = "")
         {
             try
             {
                 string strJson = HttpHelper.HttpPost(string.Format(Url, token),"{\"touser\":\""+ phone + "\",\"template_id\":\""+ templateCode + "\",\"data\":"+ _params + "}" );
                 var model = JsonConvert.DeserializeObject<M_WeChatSMS>(strJson);
                 Console.WriteLine($"WeChatSMS：{strJson}  {DateTime.Now}{Environment.NewLine}");
-                return model.errcode == 0 ? true : false;
+                return new Tuple<bool, string>(model.errcode == 0 ? true : false, strJson);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Tuple<bool, string>(false, ex.Message);
             }
         }
     }

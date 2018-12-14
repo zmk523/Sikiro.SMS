@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Sikiro.SMSService.Interfaces;
+using System;
 
 namespace Sikiro.SMSService.Sms
 {
@@ -22,12 +23,12 @@ namespace Sikiro.SMSService.Sms
 
         protected string UserId { get; set; }
 
-        public bool SendSMS(List<string> phones, string content, string signName, string templateCode = "", object _params = null, string token = "")
+        public Tuple<bool,string> SendSMS(List<string> phones, string content, string signName, string templateCode = "", string _params = "", string token = "")
         {
             return SendSMS(string.Join(";", phones), content, signName, templateCode, _params, token);
         }
 
-        public abstract bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "");
+        public abstract Tuple<bool, string> SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "", string token = "");
 
     }
 }

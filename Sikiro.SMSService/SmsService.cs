@@ -39,9 +39,10 @@ namespace Sikiro.SMSService
         {
             Sms = item;
             item.CreateDateTime = DateTime.Now;
-            var isSuccess = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode, item.Params, item.Token);
+            var tuple = _smsFactory.Create(item.Type).SendSMS(item.Mobiles, item.Content, _configuration["Sms:SignName"], item.TemplateCode, item.Params, item.Token);
             item.TimeSendDateTime = DateTime.Now;
-            if (isSuccess)
+            item.ResultJson = tuple.Item2;
+            if (tuple.Item1)
                 Success(item);
             else
                 Fail(item);
@@ -70,7 +71,7 @@ namespace Sikiro.SMSService
                         TimeSendDateTime = sms.TimeSendDateTime,
                         Type = sms.Type,
                         TemplateCode = sms.TemplateCode,
-                        Params = JsonConvert.SerializeObject(sms.Params),
+                        Params = sms.Params,
                         Token = sms.Token
                     });
                     index++;

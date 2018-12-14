@@ -33,68 +33,20 @@ namespace Sikiro.SMS.Api.Model.Sms
         /// </summary>
         public string TemplateCode { get; set; }
         /// <summary>
-        /// 扩展参数（使用场景：微信模板消息、支付宝生活号消息）
-        /// 微信：{"touser":"","template_id":"","data":{"first":{"value":"订单取消","color":"#173177"},"keyword1":{"value":"1234545787878","color":"#173177"},"keyword2":{"value":"支付超时","color":"#173177"},"keyword3":{"value":"2018-10-04 08:54:35","color":"#173177"},"keyword4":{"value":"2018-10-04 08:55:35","color":"#173177"},"remark":{"value":"感谢您的关注","color":"#173177"}}}
+        /// 扩展参数[json]（使用场景：微信模板消息、支付宝生活号消息）
+        /// 微信：{"first":{"value":"订单取消","color":"#173177"},"keyword1":{"value":"1234545787878","color":"#173177"},"keyword2":{"value":"支付超时","color":"#173177"},"keyword3":{"value":"2018-10-04 08:54:35","color":"#173177"},"keyword4":{"value":"2018-10-04 08:55:35","color":"#173177"},"remark":{"value":"感谢您的关注","color":"#173177"}}
         /// 支付宝：
-        /// 极光：
+        /// 极光：{"cid":"8888888888","platform":"all","audience":{"registration_id":["1507bfd3f79532f49e3"]},"notification":{"alert":"Hello, JPush!"}}
         /// </summary>
         /// <remarks>
         /// <remark>
         /// 微信：https://www.cnblogs.com/stoneniqiu/p/7091501.html
         /// </remark>
         /// </remarks>
-        public object Params { get; set; }
+        public string Params { get; set; }
         /// <summary>
         /// 微信token
         /// </summary>
         public string Token { get; set; }     
-    }
-
-    /// <summary>
-    /// 模板数据
-    /// </summary>
-    public class TemplateData
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public TempItem First { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TempItem Keyword1 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TempItem Keyword2 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public TempItem Remark { get; set; }
-    }
-
-    /// <summary>
-    /// 模板项
-    /// </summary>
-    public class TempItem
-    {
-        /// <summary>
-        /// 构造方法
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="color"></param>
-        public TempItem(string value, string color = "#173177")
-        {
-            Value = value;
-            Color = color;
-        }
-        /// <summary>
-        /// 模板项值
-        /// </summary>
-        public string Value { get; set; }
-        /// <summary>
-        /// 模板项颜色
-        /// </summary>
-        public string Color { get; set; }
-    }
+    }   
 }

@@ -23,7 +23,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.WoDongSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
+        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "", string token = "")
         {
             var utf8Encode = Encoding.GetEncoding("utf-8");
 

@@ -35,5 +35,9 @@ namespace Sikiro.Model
         /// 微信token
         /// </summary>
         public string Token { get; set; }
+        /// <summary>
+        /// 第三方返回结果
+        /// </summary>
+        public string ResultJson { get; set; }
     }
 }

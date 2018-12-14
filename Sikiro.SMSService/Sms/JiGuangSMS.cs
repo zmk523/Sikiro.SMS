@@ -37,29 +37,29 @@ namespace Sikiro.SMSService.Sms
             //headers.Add("Authorization", $"Basic {EncryptHelper.Base64Code(string.Concat(Account, ":", Password))}");
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
+        public override Tuple<bool, string> SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "", string token = "")
         {
             try
             {
-                string jparams = JsonConvert.SerializeObject(_params);
+                //string jparams = JsonConvert.SerializeObject(_params);
                 var cidHttpResponse = client.GetCIdList(1, "push");
                 var cidModel = JsonConvert.DeserializeObject<JiguangCIdList>(cidHttpResponse.Content);
-                jparams = jparams.Replace("8888888888", cidModel.cidlist[0]);
+                _params = _params.Replace("8888888888", cidModel.cidlist[0]);
                 //var pushModel = JsonConvert.DeserializeObject<PushPayload>(_params);
-                var httpResponse = client.SendPushAsync(jparams).Result;
+                var httpResponse = client.SendPushAsync(_params).Result;
                 if (!httpResponse.Content.Contains("sendno"))
                 {
                     Console.WriteLine($"JiGuangSMS：{httpResponse.Content}  {DateTime.Now}{Environment.NewLine}");
-                    return false;
+                    return new Tuple<bool, string>(false, httpResponse.Content);
                 }
                 var result = JsonToDictionary(httpResponse.Content);
                 //{"sendno":"0","msg_id":"54043197107897451"}              
                 Console.WriteLine($"JiGuangSMS：{httpResponse.Content}  {DateTime.Now}{Environment.NewLine}");
-                return Convert.ToInt32(result["sendno"].ToString()) == 0 ? true : false;
+                return new Tuple<bool, string>(Convert.ToInt32(result["sendno"].ToString()) == 0 ? true : false, httpResponse.Content);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Tuple<bool, string>(false, ex.Message);
             }
         }
 

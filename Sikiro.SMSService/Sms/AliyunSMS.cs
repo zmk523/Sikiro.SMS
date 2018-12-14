@@ -36,7 +36,7 @@ namespace Sikiro.SMSService.Sms
             MaxCount = config.Sms.AliyunSMS.MaxCount;
         }
 
-        public override bool SendSMS(string phone, string content, string signName, string templateCode = "", object _params = null, string token = "")
+        public override Tuple<bool, string> SendSMS(string phone, string content, string signName, string templateCode = "", string _params = "", string token = "")
         {
             phone = phone.Replace(";", ",");
             IClientProfile profile = DefaultProfile.GetProfile(RegionId, Account, Password);
@@ -63,7 +63,7 @@ namespace Sikiro.SMSService.Sms
                         response = SendSMS2(acsClient, request, phone, content, signName, templateCode);
                         break;
                     default:
-                        return false;
+                        return new Tuple<bool, string>(false, msg);
                 }
                 if (response.Code.ToUpper() == "OK")
                 {
@@ -84,7 +84,7 @@ namespace Sikiro.SMSService.Sms
                 msg = e.Message;
             }
             Console.WriteLine($"AliyunSMS：{msg}  {DateTime.Now}{Environment.NewLine}");
-            return repCode > 0 ? true : false;
+            return new Tuple<bool, string>(repCode > 0 ? true : false, msg);
         }
 
         private SendSmsResponse SendSMS(IAcsClient acsClient, SendSmsRequest request, string phone, string content, string signName, string templateCode)
