@@ -16,6 +16,8 @@
     <PackageReference Include="EasyNetQ" Version="3.3.5" />
     <PackageReference Include="EasyNetQ.DI.Microsoft" Version="3.3.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="NLog.MailKit" Version="3.0.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.7.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="4.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
   </ItemGroup>
@@ -24,6 +26,8 @@
     <ProjectReference Include="..\Sikiro.Model\Sikiro.Model.csproj" />
     <ProjectReference Include="..\Sikiro.SMS.Toolkits\Sikiro.SMS.Toolkits.csproj" />
     <ProjectReference Include="..\Sikiro.SMSService\Sikiro.SMSService.csproj" />
+    <ProjectReference Include="E:\project\C#\Kjs.Pay.Api\Kj.Com.Exceptionless\Kj.Com.Exceptionless.csproj" />
+    <ProjectReference Include="E:\project\C#\Kjs.Pay.Api\Kj.Com.JWT\Kj.Com.JWT.csproj" />
   </ItemGroup>
 
   <ItemGroup>

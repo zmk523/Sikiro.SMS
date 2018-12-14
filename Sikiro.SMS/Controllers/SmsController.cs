@@ -9,14 +9,19 @@ using Sikiro.SMS.Api.Model.Sms;
 using Sikiro.SMS.Toolkits;
 using Sikiro.SMSService;
 using Sikiro.SMSService.Model;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sikiro.SMS.Api.Controllers
 {
     /// <summary>
     /// 短信接口
     /// </summary>
-    [Route("api/[controller]")]
-    [ApiController]
+    [Produces("application/json")]
+    [Authorize("Bearer")]
+    [EnableCors("Any")]
+    [Route("api/sms")]
+    //[ApiController]
     public class SmsController : ControllerBase
     {
         private readonly SmsService _smsService;

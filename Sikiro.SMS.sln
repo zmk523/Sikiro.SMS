@@ -40,6 +40,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQ.Publish", "MQ.Publish\MQ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sikiro.Nosql.Mongo", "..\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo\Sikiro.Nosql.Mongo.csproj", "{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kj.Com.JWT", "E:\project\C#\Kjs.Pay.Api\Kj.Com.JWT\Kj.Com.JWT.csproj", "{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kj.Com.Exceptionless", "E:\project\C#\Kjs.Pay.Api\Kj.Com.Exceptionless\Kj.Com.Exceptionless.csproj", "{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +90,14 @@ Global
 		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +112,8 @@ Global
 		{506C9F8B-48F0-48FF-BA8B-6F6386564205} = {0F753C0D-1E17-4853-A0C3-7F960A1ABF64}
 		{C2ECC42E-EC4B-4DD3-8EE6-F2516EE6C2C9} = {E90EDDCB-3067-4729-8DAA-D26F55B732EC}
 		{CA30E0ED-7E59-4B4F-AF7C-9C634453C201} = {C4F2BCF9-30F1-4F33-8FAE-8CBA85C7BC78}
+		{D00D2DDE-8DA4-44F4-98E4-8190C5D9BF29} = {C4F2BCF9-30F1-4F33-8FAE-8CBA85C7BC78}
+		{D61E2DA0-CD78-40A7-AFC6-BE2E62913C64} = {C4F2BCF9-30F1-4F33-8FAE-8CBA85C7BC78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29CD5C9D-EB91-4995-A615-52F036A93025}

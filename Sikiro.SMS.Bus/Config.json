@@ -9,7 +9,7 @@
     "Description": "短信消费服务"
   },
   "Sms": {
-    "SignName": "阿里云短信测试专用",
+    "SignName": "阔界购",
     "JianZhouSMS": {
       "Account": "a",
       "Password": "b",
