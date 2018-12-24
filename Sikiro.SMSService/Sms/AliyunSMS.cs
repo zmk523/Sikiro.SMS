@@ -57,6 +57,7 @@ namespace Sikiro.SMSService.Sms
                     case "SMS_116785165"://用户注册验证码
                     case "SMS_116785164"://修改密码验证码
                     case "SMS_116785163"://信息变更验证码
+                    case "SMS_153327338":
                         response = SendSMS(acsClient, request, phone, content, signName, templateCode);
                         break;
                     case "SMS_116785168"://短信测试
